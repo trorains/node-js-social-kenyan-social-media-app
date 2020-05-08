@@ -1,0 +1,75 @@
+<%- include('includes/header') %>
+
+<div class="container py-md-5">
+  <%- include('includes/flash') %>
+
+  
+  <div class="row align-items-center">
+    <div class="col-lg-7 py-3 py-md-5">
+      <h1 class="display-3">Local Chat</h1>      
+      <p class="lead text-muted">The new safer social age of not plain, &ldquo;shared&rdquo; posts that are reminiscent of the late 90&rsquo;s email forwards? We believe getting back to actually writing is the key to enjoying the internet again.</p>
+    </div>
+    <div class="col-lg-5 pl-lg-5 pb-3 py-lg-5">
+      <form action="/register" method="POST" id="registration-form">
+
+        <% regErrors.forEach(function(message){ %>
+          <div class ="alert alert-danger small"><%= message %></div>
+       <% })%>
+          <div class="form-group">
+            <label  style="font-weight: bold;" for="username-register" class="text-muted mb-1"><small>Username</small></label>
+            <input name="username" id="username-register" class="form-control" type="text" placeholder="Pick a username" autocomplete="on">
+          </div>
+          
+          <div class="form-group">
+            <label  style="font-weight: bold;"for="email-register" class="text-muted mb-1"><small>Email</small></label>
+            <input name="email" id="email-register" class="form-control" type="text" placeholder="you@example.com" autocomplete="on">
+          </div>
+          <div class="form-group">
+            <label  style="font-weight: bold;"for="email-register" class="text-muted mb-1"><small>Password</small></label>
+          </div>
+          <div class="form-group" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+            <input name="password" id="password-register" class="form-control" type="password" placeholder="Create a password">
+            <label  style="font-weight: bold;" for="password-register" class="text-muted mb-1" ><small> Show Password</small></label>
+            <input name="checkbox" class="form-control form-control-sm input-dark" type="checkbox" onclick="Toggle2()">
+          </div>
+         
+          <script> 
+            // Change the type of input to password or text 
+                function Toggle2() { 
+                    var temp = document.getElementById("password-register"); 
+                    if (temp.type === "password") { 
+                        temp.type = "text"; 
+                    } 
+                    else { 
+                        temp.type = "password"; 
+                    } 
+                } 
+        </script> 
+          <div class="form-group">
+            <label  style="font-weight: bold;" for="password-register" class="text-muted mb-1"><small> Re-enter Password</small></label>
+            <input name="password2" id="password-register2" class="form-control" type="password" placeholder="Re-enter password">
+          </div>
+          <!-- <script>
+function pass_validation()
+{
+var firstpassword=document.registration-form.password-register.value;  
+var secondpassword=document.registration-form.passwordr-register2.value;  
+
+if(firstpassword==secondpassword){  
+return true;  
+}  
+else{  
+alert("password one and two must be same!");  
+return false;  
+}  
+} 
+</script> -->
+          <button type="submit" class="py-3 mt-4 btn btn-lg btn-success btn-block">Sign up </button>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <%- include('includes/footer') %>
+
